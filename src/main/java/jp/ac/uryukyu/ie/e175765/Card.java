@@ -1,36 +1,78 @@
 package jp.ac.uryukyu.ie.e175765;
 
-public class Card {
-    int number;
-    String suit;
-    //コンストラクタ
-    public Card(){
-        play();
+import javax.swing.*;
 
+public class Card {
+    private int number;
+    private int ran;
+    private String suit;
+    private String ill;
+
+    //コンストラクタ
+    public Card() {
+        play();
+        mark();
+
+        /*if (number > 0 && number <= 10) {
+            System.out.println( suit + ":" + number);
+        } else {
+            if (number == 0) {
+                System.out.println(ill + "です。");
+            } else {
+                System.out.println( suit + ":" + ill);
+            }
+        }*/
     }
-    public void play(){
-        number = (int)(Math.random()*13);
-        int ran = (int)(Math.random()*4);
+
+    public int getNumber() {
+        return number;
+    }
+
+    public String getSuit() {
+        return suit;
+    }
+
+    public String getIll() {
+        return ill;
+    }
+
+    //ランダムに０〜１３の中から一つ選ぶ。
+    public void play() {
+        this.number = (int) (Math.random() * 13);
+        switch (number) {
+            case 11:
+                ill = "J";
+                break;
+            case 12:
+                ill = "Q";
+                break;
+            case 13:
+                ill = "K";
+                break;
+            case 0:
+                ill = "joker";
+                break;
+        }
+    }
+
+    public void mark(){
+         ran = (int)(Math.random()*4);
         switch (ran) {
+            case 0:
+                suit = "joker";
             case 1:
                 suit = "spade";
-                //System.out.println("スペード");
                 break;
             case 2:
                 suit = "heart";
-                //System.out.println("ハート");
                 break;
             case 3:
                 suit = "dia";
-                //System.out.println("ダイヤ");
                 break;
             case 4:
                 suit = "clover";
-                //System.out.println("クローバー");
                 break;
         }
-            //System.out.println(number);
-
-            System.out.println("マークは" + suit + "の"+number+"です。");
     }
+
 }
