@@ -12,16 +12,6 @@ public class Card {
     public Card() {
         play();
         mark();
-
-        /*if (number > 0 && number <= 10) {
-            System.out.println( suit + ":" + number);
-        } else {
-            if (number == 0) {
-                System.out.println(ill + "です。");
-            } else {
-                System.out.println( suit + ":" + ill);
-            }
-        }*/
     }
 
     public int getNumber() {
